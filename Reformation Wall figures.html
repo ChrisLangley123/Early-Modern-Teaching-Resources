@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+
+<!-- //thank you Oliver for hosting this file. I'm very grateful.// -->
+
+<head>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.6.0/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet@1.6.0/dist/leaflet.js"></script>
+<style>
+
+<style>
+
+
+.leaflet-popup-close-button {
+	display: none
+}
+
+.leaflet-popup-content-wrapper, .leaflet-popup-tip {
+    background: rgba(40,43,51,0.9);
+    color: white;
+    width: 295px;
+    box-shadow: 0 4px 3px rgba(0,0,0,0.6);
+		padding: 1px;
+text-align: center;
+border-radius: 4px;
+}
+
+#over {
+padding-left: 20px;
+padding-right: 20px;
+position: absolute;
+width: 300px;
+right: 0px;
+height: 100%;
+z-index: 10000000;
+background: rgba(40,43,51,0.7);
+transition: 0.7s;
+font-family: helvetica;
+color: white;
+
+}
+
+  #map {position: absolute; top: 10px; bottom: 10px; left: 0; right: 0}
+
+</style>
+
+</style>
+
+</head>
+<body>
+
+  <div id = "map"></div>
+  <div id='over'>
+  			<h2> Understanding the Reformation Wall </h2>
+          <br>
+  			      <p> The Reformation Wall was completed in 1909 in the Swiss city of Geneva. It depicts ten figures from Reformation history. I need you to consider what sort of history this monument was trying to display.
+          <br>
+          <br>
+              <p> While the Wall was built in Geneva, the figures portrayed in its stone were from countries far outside of Switzerland. This map shows the locations of these people, colour coded by where they appear on the Wall. You can also see the icon of the statue, showing the whereabouts of the Reformation Wall itself.
+          <br>
+          <br>
+              <p>Why did the Wall depict so many different figures from outside of Switzerland? What were its designers trying to achieve?
+          <br>
+          <br>
+              <p>You can watch this short video to get an idea of the scale of the wall, as well as some of the ideas behind its creation.
+          <br>
+          <br>
+              <object data="https://www.youtube.com/embed/pgh4D70vnyk" width="300" height="180"></object>
+          <br>
+          <br>
+              <p> What sorts of decisions went into making this monument? Were different perspectives ignored?
+          <br>
+  				</div>
+
+  <script>
+
+  var map = L.map('map').setView([46.20145828248856, 6.146163940429687], 4);
+
+L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+}).addTo(map);
+
+var redIcon = L.icon({
+    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png',
+    iconSize:     [25, 41], // size of the icon
+});
+
+var greenIcon = L.icon({
+    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png',
+    iconSize:     [25, 41], // size of the icon
+});
+
+var blackIcon = L.icon({
+    iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-black.png',
+    iconSize:     [25, 41], // size of the icon
+});
+
+var statueIcon = L.icon({
+    iconUrl: 'https://image.flaticon.com/icons/png/512/0/998.png',
+    iconSize:     [55, 55], // size of the icon
+});
+
+var marker1 = L.marker([46.990557573531454, 6.929283142089844], {icon: redIcon}).addTo(map);
+var marker2 = L.marker([46.20145828248856, 6.146163940429687], {icon: redIcon}).addTo(map);
+var marker3 = L.marker([46.521784367720734, 6.634368896484375],{icon: redIcon}).addTo(map);
+var marker4 = L.marker([55.94881534959578, -3.1915283203125],{icon: redIcon}).addTo(map);
+
+var marker5 = L.marker([52.546295697522886,  13.3538818359375], {icon: greenIcon}).addTo(map);
+var marker6 = L.marker([52.36228804472345, 4.912605285644531], {icon: greenIcon}).addTo(map);
+var marker7 = L.marker([48.85522811385678, 2.3486709594726562], {icon: greenIcon}).addTo(map);
+
+var marker8 = L.marker([ 41.82045509614034, -71.4111328125], {icon: blackIcon}).addTo(map);
+var marker9 = L.marker([51.49677467073,  -0.1284027099609375], {icon: blackIcon}).addTo(map);
+var marker10 = L.marker([46.46807387555775, 22.761096954345703], {icon: blackIcon}).addTo(map);
+
+var marker11 = L.marker([46.193319119571704, 6.150627136230469], {icon: statueIcon}).addTo(map);
+
+marker1.bindPopup("<h3> Guillaume Farel </h3><p>Neuchatel </p> <img src='http://apostles-creed.org/wp-content/uploads/2014/06/farel-191x300.jpg' />");
+marker2.bindPopup("<h3> Jean Calvin </h3><p> Geneva </p> <img src='http://oratoiredulouvre.fr/uploads/histoire/reformateurs/Jean-Calvin/_gridOneThirdNoCrop/Calvin-Geneve.jpg' height=300px />");
+marker3.bindPopup("<h3> Theodore Beza </h3><p> Laussanne & Geneva </p> <img src='http://apostles-creed.org/wp-content/uploads/2014/06/beza-194x300.jpg' />");
+marker4.bindPopup("<h3> John Knox </h3><p> Edinburgh </p> <img src='http://apostles-creed.org/wp-content/uploads/2014/06/knox-198x300.jpg' />");
+
+marker5.bindPopup("<h3> Frederick William of Brendenburg </h3><p> Brandenburg </p> <img src='http://apostles-creed.org/wp-content/uploads/2014/06/Frederick-William-194x300.jpg' />");
+marker6.bindPopup("<h3> William the Silent </h3><p> Amsterdam </p> <img src='http://apostles-creed.org/wp-content/uploads/2014/06/William-Orange-194x300.jpg' />");
+marker7.bindPopup("<h3> Gaspard de Coligny </h3><p> Paris </p> <img src='http://apostles-creed.org/wp-content/uploads/2014/06/coligny-194x300.jpg' />");
+
+marker8.bindPopup("<h3> Roger Williams </h3><p> Rhode Island </p> <img src='http://apostles-creed.org/wp-content/uploads/2014/06/roger-williams-194x300.jpg' />");
+marker9.bindPopup("<h3> Oliver Cromwell </h3><p> Westminster </p > <img src='https://media-cdn.tripadvisor.com/media/photo-s/04/1f/38/d6/reformation-wall-mur.jpg' width=250px />");
+marker10.bindPopup("<h3> Stephen Bocskai </h3><p>Transylvania </p> <img src='https://i.pinimg.com/originals/74/ed/a9/74eda9a379508e110d10c209e8c6dac2.jpg' height=300px />");
+
+marker11.bindPopup('<h3> The Reformation Wall</h3><p>Geneva');
+
+  </script>
+
+  </body>
+  </html>
